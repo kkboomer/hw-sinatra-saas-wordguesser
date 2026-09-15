@@ -10,6 +10,7 @@ class WordGuesserGame
     @wrong_guesses = ''
   end
   def guess(letter)
+    raise ArgumentError if letter == nil
     raise ArgumentError unless letter.match?(/[a-zA-Z]/)
     letter = letter.downcase
     if guesses.include?(letter) or wrong_guesses.include?(letter)
@@ -34,7 +35,8 @@ class WordGuesserGame
     end
   end
   def word_with_guesses
-
+      word.chars.map do |letter| if guesses.include?(letter)
+                                   letter else '-' end end.join
   end
 
   # You can test it by installing irb via $ gem install irb
