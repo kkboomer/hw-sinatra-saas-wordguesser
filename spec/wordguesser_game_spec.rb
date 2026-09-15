@@ -9,7 +9,7 @@ describe WordGuesserGame do
     end
   end
 
-  describe 'new', pending: true do
+  describe 'new' do
     it "takes a parameter and returns a WordGuesserGame object" do
       @game = described_class.new('glorp')
       expect(@game).to be_an_instance_of(described_class)
@@ -19,19 +19,19 @@ describe WordGuesserGame do
     end
   end
 
-  describe 'guessing', pending: true do
+  describe 'guessing' do
     context 'correctly' do
       before do
         @game = described_class.new('garply')
         @valid = @game.guess('a')
       end
 
-      it 'changes correct guess list', pending: true do
+      it 'changes correct guess list' do
         expect(@game.guesses).to eq('a')
         expect(@game.wrong_guesses).to eq('')
       end
 
-      it 'returns true', pending: true do
+      it 'returns true' do
         expect(@valid).not_to be false
       end
     end
@@ -42,12 +42,12 @@ describe WordGuesserGame do
         @valid = @game.guess('z')
       end
 
-      it 'changes wrong guess list', pending: true do
+      it 'changes wrong guess list' do
         expect(@game.guesses).to eq('')
         expect(@game.wrong_guesses).to eq('z')
       end
 
-      it 'returns true', pending: true do
+      it 'returns true' do
         expect(@valid).not_to be false
       end
     end
